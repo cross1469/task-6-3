@@ -4,5 +4,5 @@ repos:
     hooks:
       - id: yamllint
         args: [--format, parsable, --strict]
-        files: ^dev/.*\.yaml$
+        files: ^k8s/.*\.yaml$
         exclude: ^.pre-commit-hooks.yaml$
