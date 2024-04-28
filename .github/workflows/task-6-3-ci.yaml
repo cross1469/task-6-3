@@ -1,0 +1,23 @@
+name: task 6-3 CI Workflow
+
+on:
+  push:
+    branches: [dev, feat, main]
+  pull_request:
+    branches: [dev, main]
+
+jobs:
+  yamllint:
+    name: 'Yamllint'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Checkout'
+        uses: actions/checkout@master
+      - name: 'Yamllint'
+        uses: karancode/yamllint-github-action@master
+        with:
+          yamllint_strict: false
+          yamllint_comment: true
+          yamllint_file_or_dir: './dev'
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}

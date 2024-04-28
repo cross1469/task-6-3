@@ -1,0 +1,8 @@
+repos:
+  - repo: https://github.com/adrienverge/yamllint.git
+    rev: v1.31.0
+    hooks:
+      - id: yamllint
+        args: [--format, parsable, --strict]
+        files: ^dev/.*\.yaml$
+        exclude: ^.pre-commit-hooks.yaml$
